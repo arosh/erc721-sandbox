@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form-inline my-2">
+            <label class="sr-only" for="mint-account">account</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <input type="text" class="form-control" id="mint-account" placeholder="account" disabled>
+            </div>
+            <button type="button" class="btn btn-outline-primary mb-2" id="mint">mint</button>
+        </form>
+
+        <form class="form-inline my-2">
+            <label class="sr-only" for="set-token-uri-token-id">tokenId</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <input type="text" class="form-control" id="set-token-uri-token-id" placeholder="tokenId">
+            </div>
+            <label class="sr-only" for="set-token-uri-message">message</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <input type="text" class="form-control" id="set-token-uri-message" placeholder="message">
+            </div>
+            <button type="button" class="btn btn-outline-info mb-2" id="set-token-uri">setTokenURI</button>
+        </form>
+
+        <form class="form-inline my-2">
+            <label class="sr-only" for="burn-token-id">tokenId</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <input type="text" class="form-control" id="burn-token-id" placeholder="tokenId">
+            </div>
+            <button type="button" class="btn btn-outline-danger mb-2" id="burn">burn</button>
+        </form>
+
+        <form class="form-inline my-2">
+            <label class="sr-only" for="transfer-from">from</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <input type="text" class="form-control" id="transfer-from" placeholder="from" disabled>
+            </div>
+            <label class="sr-only" for="transfer-to">to</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <input type="text" class="form-control" id="transfer-to" placeholder="to">
+            </div>
+            <label class="sr-only" for="transfer-token-id">tokenId</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <input type="text" class="form-control" id="transfer-token-id" placeholder="tokenId">
+            </div>
+            <button type="button" class="btn btn-outline-success mb-2" id="transfer">transfer</button>
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tokens">
+                <!--
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>
+                        <a href="#" onclick="prepareSetTokenURI(114514)" class="badge badge-info">setTokenURI</a>
+                        <a href="#" onclick="prepareBurn(114514)" class="badge badge-danger">burn</a>
+                        <a href="#" onclick="prepareTransfer(114514)" class="badge badge-success">transfer</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
