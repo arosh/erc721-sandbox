@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const contractAddress = '0x7E37B56F11503d50A704725393603af67230F895';
 
-    const resp = await fetch('truffle/build/contracts/MyToken.json');
+    const resp = await fetch('./MyToken.json');
     const respJson = await resp.json();
 
     const contract = window.web3.eth.contract(respJson.abi).at(contractAddress);
