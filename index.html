@@ -56,18 +56,39 @@
             <button type="button" class="btn btn-outline-success mb-2" id="transfer">transfer</button>
         </form>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Owner</th>
-                    <th scope="col">Message</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody id="tokens">
-            </tbody>
-        </table>
+        <h3>Tokens</h3>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Token ID</th>
+                        <th scope="col">Owner</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tokens">
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Transfers</h3>
+
+        <div class="table-responsive">
+            <table class="table" style="table-layout: fixed">
+                <thead>
+                    <tr>
+                        <th scope="col">Token ID</th>
+                        <th scope="col">From</th>
+                        <th scope="col">To</th>
+                        <th scope="col">Transaction</th>
+                    </tr>
+                </thead>
+                <tbody id="transfers">
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

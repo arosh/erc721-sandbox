@@ -137,16 +137,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     const tokens = await Promise.all(tokenPromises);
     for (const token of tokens) {
         const tr = $('<tr>');
-        const th = $('<th>', {scope: 'row', text: token.tokenId});
-        const tdOwner = $('<td>', {text: token.owner});
-        const tdMessage = $('<td>', {text: token.tokenURI});
+        const th = $('<th>', { scope: 'row', text: token.tokenId });
+        const aOwner = $('<a>', { href: 'https://ropsten.etherscan.io/address/' + token.owner, text: token.owner });
+        const tdOwner = $('<td>', { class: 'text-truncate' });
+        aOwner.appendTo(tdOwner);
+        const tdMessage = $('<td>', { text: token.tokenURI });
         const tdActions = $('<td>');
         if (token.owner === owner) {
-            $('<a>', {href: '#', onclick: 'prepareSetTokenURI(' + token.tokenId + ')', class: 'badge badge-info', text: 'setTokenURI'}).appendTo(tdActions);
+            $('<a>', { href: '#', onclick: 'prepareSetTokenURI(' + token.tokenId + ')', class: 'badge badge-info', text: 'setTokenURI' }).appendTo(tdActions);
             tdActions.append(' ');
-            $('<a>', {href: '#', onclick: 'prepareBurn(' + token.tokenId + ')', class: 'badge badge-danger', text: 'burn'}).appendTo(tdActions);
+            $('<a>', { href: '#', onclick: 'prepareBurn(' + token.tokenId + ')', class: 'badge badge-danger', text: 'burn' }).appendTo(tdActions);
             tdActions.append(' ');
-            $('<a>', {href: '#', onclick: 'prepareTransfer(' + token.tokenId + ')', class: 'badge badge-success', text: 'transfer'}).appendTo(tdActions);
+            $('<a>', { href: '#', onclick: 'prepareTransfer(' + token.tokenId + ')', class: 'badge badge-success', text: 'transfer' }).appendTo(tdActions);
         }
         th.appendTo(tr);
         tdOwner.appendTo(tr);
@@ -154,6 +156,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         tdActions.appendTo(tr);
         tr.appendTo('#tokens');
     }
+
+    contract.Transfer({}, { fromBlock: 0, toBlock: 'latest' }).get((err, logs) => {
+        if (err) {
+            throw err;
+        }
+        for (const log of logs) {
+            const tr = $('<tr>')
+            const th = $('<th>', { scope: 'row', text: log.args._tokenId });
+            const aFrom = $('<a>', { href: 'https://ropsten.etherscan.io/address/' + log.args._from, text: log.args._from });
+            const tdFrom = $('<td>', { class: 'text-truncate' });
+            aFrom.appendTo(tdFrom);
+            const aTo = $('<a>', { href: 'https://ropsten.etherscan.io/address/' + log.args._to, text: log.args._to });
+            const tdTo = $('<td>', { class: 'text-truncate' });
+            aTo.appendTo(tdTo);
+            const aTransaction = $('<a>', { href: 'https://ropsten.etherscan.io/tx/' + log.transactionHash, text: log.transactionHash, class: 'text-truncate' });
+            const tdTransaction = $('<td>', { class: 'text-truncate' });
+            aTransaction.appendTo(tdTransaction);
+            th.appendTo(tr);
+            tdFrom.appendTo(tr);
+            tdTo.appendTo(tr);
+            tdTransaction.appendTo(tr);
+            tr.appendTo('#transfers')
+        }
+    })
 });
 
 function prepareSetTokenURI(tokenId) {
