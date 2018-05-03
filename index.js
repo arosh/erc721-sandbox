@@ -161,9 +161,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (err) {
             throw err;
         }
-        for (const log of logs) {
-            const tr = $('<tr>')
-            const th = $('<th>', { scope: 'row', text: log.args._tokenId });
+        const keys = Object.keys(logs);
+        keys.reverse();
+        for (const key of keys) {
+            const log = logs[key];
+            const tr = $('<tr>');
+            const th = $('<th>', { scope: 'row', text: log.blockNumber });
+            const tdTokenId = $('<td>', { text: log.args._tokenId });
             const aFrom = $('<a>', { href: 'https://ropsten.etherscan.io/address/' + log.args._from, text: log.args._from });
             const tdFrom = $('<td>', { class: 'text-truncate' });
             aFrom.appendTo(tdFrom);
@@ -174,6 +178,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const tdTransaction = $('<td>', { class: 'text-truncate' });
             aTransaction.appendTo(tdTransaction);
             th.appendTo(tr);
+            tdTokenId.appendTo(tr);
             tdFrom.appendTo(tr);
             tdTo.appendTo(tr);
             tdTransaction.appendTo(tr);
