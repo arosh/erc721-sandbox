@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     window.web3 = new Web3(window.web3.currentProvider);
 
-    const contractAddress = '0x7E37B56F11503d50A704725393603af67230F895';
+    const contractAddress = '0x131fb74155e8f60a8e13706817ae92f687f8f565';
 
     const resp = await fetch('./MyToken.json');
     const respJson = await resp.json();

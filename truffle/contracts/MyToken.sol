@@ -3,10 +3,13 @@ pragma solidity ^0.4.21;
 import "zeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
 
 contract MyToken is ERC721Token {
-  constructor(string _name, string _symbol) public ERC721Token(_name, _symbol) {}
+  uint256 internal nextTokenId = 0;
+
+  constructor() public ERC721Token("MyToken", "MTKN") {}
 
   function mint() external {
-    uint256 tokenId = totalSupply();
+    uint256 tokenId = nextTokenId;
+    nextTokenId = nextTokenId.add(1);
     super._mint(msg.sender, tokenId);
   }
 
