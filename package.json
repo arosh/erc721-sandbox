@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "wdio-chromedriver-service": "^0.1.3",
+    "wdio-mocha-framework": "^0.5.13",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-static-server-service": "^1.0.1",
+    "webdriverio": "^4.12.0"
+  }
+}
