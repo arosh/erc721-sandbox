@@ -39,12 +39,7 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
-        browserName: 'firefox'
+        browserName: 'chrome'
     }],
     //
     // ===================
@@ -77,7 +72,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'http://localhost:4567',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -242,4 +237,7 @@ exports.config = {
      */
     // onComplete: function(exitCode, config, capabilities) {
     // }
+    staticServerFolders: [
+        { mount: '/', path: '.' },
+    ],
 }
