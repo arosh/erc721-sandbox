@@ -1,8 +1,9 @@
-const assert = require("chai").assert;
-
 describe("hoge", () => {
   it("fuga", () => {
     browser.url("/");
-    assert.strictEqual(browser.getTitle(), "ERC721 sandbox");
+    const title = browser.execute(() => {
+      return document.title;
+    })
+    expect(title.value).to.equal("ERC721 sandbox");
   });
 });
