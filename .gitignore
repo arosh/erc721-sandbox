@@ -1,3 +1,4 @@
+node_modules
 truffle/node_modules
 truffle/build
 contracts/abi.json
