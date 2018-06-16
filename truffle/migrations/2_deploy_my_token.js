@@ -3,7 +3,7 @@ const fs = require('mz/fs');
 
 module.exports = (deployer) => {
   deployer
-    .deploy(MyToken, "MyToken", "MTKN")
+    .deploy(MyToken)
     .then(() =>
       Promise.all([
         fs.writeFile('../contracts/address.txt', MyToken.address),

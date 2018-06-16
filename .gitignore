@@ -1,2 +1,4 @@
 truffle/node_modules
 truffle/build
+contracts/abi.json
+contracts/address.txt
