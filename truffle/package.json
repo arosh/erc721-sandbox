@@ -3,5 +3,11 @@
   "dependencies": {
     "mz": "^2.7.0",
     "zeppelin-solidity": "1.9.0"
+  },
+  "devDependencies": {
+    "truffle": "^4.1.11"
+  },
+  "scripts": {
+    "deploy": "truffle deploy"
   }
 }

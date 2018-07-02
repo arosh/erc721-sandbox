@@ -4,12 +4,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     window.web3 = new Web3(window.web3.currentProvider);
 
-    const contractAddress = '0x131fb74155e8f60a8e13706817ae92f687f8f565';
-
-    const resp = await fetch('./MyToken.json');
+    const resp = await fetch('./contract/MyToken.json');
     const respJson = await resp.json();
 
-    const contract = window.web3.eth.contract(respJson.abi).at(contractAddress);
+    // const contractAddress = '0x131fb74155e8f60a8e13706817ae92f687f8f565';
+    const contract = window.web3.eth.contract(respJson.abi).at(respJson.address);
 
     function getAccount() {
         return new Promise((resolve, reject) => {
