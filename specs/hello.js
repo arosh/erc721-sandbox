@@ -103,7 +103,7 @@ const clickButtonByText = async (page, text) => {
   const page = await browser.newPage();
   await page.bringToFront();
   await page.goto("localhost:8080");
-  await page.waitForSelector("#tokens");
+  await page.waitFor(500);
   assert.strictEqual((await page.$$("#tokens > tr")).length, 0);
   await clickButtonByText(page, "mint");
 
@@ -116,9 +116,10 @@ const clickButtonByText = async (page, text) => {
   await metamaskPage.click("input.confirm");
 
   await page.bringToFront();
-  await page.waitFor(500);
-  await page.reload();
+  await page.waitFor(10000);
+  await page.reload()
   await page.waitFor(500);
   assert.strictEqual((await page.$$("#tokens > tr")).length, 1);
-  // await browser.close();
+
+  await browser.close();
 })();
